@@ -1,0 +1,29 @@
+[
+  {
+    "question": "Which activity do you enjoy most?",
+    "options": [
+      { "text": "Solving math or logic problems", "areas": ["STEM"] },
+      { "text": "Designing or creating art", "areas": ["Arts"] },
+      { "text": "Helping others with health or care", "areas": ["Healthcare"] },
+      { "text": "Starting projects or organizing people", "areas": ["Business"] }
+    ]
+  },
+  {
+    "question": "What school subject do you prefer?",
+    "options": [
+      { "text": "Physics / Computer Science", "areas": ["STEM"] },
+      { "text": "Literature / History", "areas": ["Arts"] },
+      { "text": "Biology / Health", "areas": ["Healthcare"] },
+      { "text": "Economics / Business", "areas": ["Business"] }
+    ]
+  },
+  {
+    "question": "Pick a project you'd like to work on:",
+    "options": [
+      { "text": "Build a web app or robot", "areas": ["STEM"] },
+      { "text": "Write a short film or design a poster", "areas": ["Arts"] },
+      { "text": "Develop a health awareness campaign", "areas": ["Healthcare"] },
+      { "text": "Create a small business plan", "areas": ["Business"] }
+    ]
+  }
+]
