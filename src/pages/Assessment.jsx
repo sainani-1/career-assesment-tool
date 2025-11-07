@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import questions from '../data/questions.json'
+import { loadQuestions } from '../utils/questions'
 import { saveResult } from '../utils/storage'
 
 function ScoreSummary({ result }){
@@ -16,10 +16,15 @@ function ScoreSummary({ result }){
 }
 
 export default function Assessment(){
+  const [questions, setQuestions] = useState([])
   const [index, setIndex] = useState(0)
   const [answers, setAnswers] = useState([])
   const [done, setDone] = useState(false)
   const [result, setResult] = useState(null)
+
+  React.useEffect(()=>{
+    setQuestions(loadQuestions())
+  }, [])
 
   const q = questions[index]
 
@@ -44,6 +49,13 @@ export default function Assessment(){
   }
 
   if(done) return <ScoreSummary result={result} />
+
+  if(!questions || questions.length === 0) return (
+    <div>
+      <h2>Assessment</h2>
+      <p>No questions available. Please ask an admin to add questions.</p>
+    </div>
+  )
 
   return (
     <div>
