@@ -1,28 +1,28 @@
-import defaults from '../data/questions.json'
-
-const KEY = 'career_assessment_questions_v1'
-
-export function loadQuestions(){
-  try{
-    const raw = localStorage.getItem(KEY)
-    if(raw){
-      return JSON.parse(raw)
-    }
-  }catch(e){ /* ignore */ }
-  return defaults
+export function loadQuestions() {
+  return JSON.parse(localStorage.getItem("questions") || "[]");
 }
 
-export function saveQuestions(arr){
-  try{ localStorage.setItem(KEY, JSON.stringify(arr)) }catch(e){}
+export function addQuestion(q) {
+  const list = loadQuestions();
+  list.push(q);
+  localStorage.setItem("questions", JSON.stringify(list));
+  return list;
 }
 
-export function addQuestion(q){
-  const arr = loadQuestions()
-  arr.unshift(q)
-  saveQuestions(arr)
-  return arr
+export function updateQuestion(i, newQ) {
+  const list = loadQuestions();
+  list[i] = newQ;
+  localStorage.setItem("questions", JSON.stringify(list));
+  return list;
 }
 
-export function clearQuestions(){
-  localStorage.removeItem(KEY)
+export function deleteQuestion(i) {
+  const list = loadQuestions();
+  list.splice(i, 1);
+  localStorage.setItem("questions", JSON.stringify(list));
+  return list;
+}
+
+export function clearQuestions() {
+  localStorage.removeItem("questions");
 }

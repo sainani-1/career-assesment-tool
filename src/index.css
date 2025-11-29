@@ -1,68 +1,231 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* --------- RESET --------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background: #f0f2f5;
+  color: #222;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* --------- NAVBAR --------- */
+.nav {
+  width: 100%;
+  background: #ffffff;
+  padding: 16px 30px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+
+  border-bottom: 1px solid #e2e2e2;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  color: #2f6fed;
+}
+
+.nav button {
+  margin-left: auto;
+  padding: 8px 14px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.nav button:hover {
+  background: #d73737;
+}
+
+/* --------- PAGE CONTAINER --------- */
+.container {
+  width: 85%;
+  max-width: 1000px;
+  margin: 35px auto;
+}
+
+/* --------- CARDS --------- */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  margin: 20px 0;
+}
+
+/* --------- FORMS --------- */
+form {
+  width: 380px;
+  background: white;
+  padding: 25px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.25s ease;
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #2f6fed;
+  box-shadow: 0 0 6px rgba(47, 111, 237, 0.4);
+  outline: none;
 }
 
 button {
+  padding: 12px;
+  background: #2f6fed;
+  color: white;
+  font-weight: 600;
+  border: none;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: 0.25s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button:hover {
+  background: #1f53cb;
+}
+
+button.danger {
+  background: #ff4747;
+}
+
+button.danger:hover {
+  background: #d63030;
+}
+
+/* --------- ADMIN SECTION --------- */
+section {
+  margin-top: 30px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+section h3 {
+  color: #2f6fed;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  border-left: 5px solid #2f6fed;
+  padding-left: 10px;
+}
+
+/* --------- CRUD LIST --------- */
+.crud-container {
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.crud-form {
+  display: flex;
+  gap: 10px;
+}
+
+.crud-list {
+  margin-top: 20px;
+}
+
+.crud-item {
+  background: #fafafa;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 10px;
+  transition: 0.25s ease;
+}
+
+.crud-item:hover {
+  background: #f5f7ff;
+  border-color: #cdd8ff;
+}
+
+.crud-actions button {
+  margin-left: 10px;
+}
+
+/* --------- ASSESSMENT QUESTIONS --------- */
+.question-card {
+  background: #ffffff;
+  padding: 30px;
+  margin: auto;
+  max-width: 650px;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.options button {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+/* --------- RESULT CARD --------- */
+.result {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: auto;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.result h3,
+.result h4 {
+  color: #2f6fed;
+  margin-bottom: 10px;
+}
+
+.result ul {
+  margin-left: 20px;
+}
+
+/* --------- RESPONSIVE --------- */
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+
+  .question-card,
+  .result,
+  form {
+    width: 95%;
   }
 }
